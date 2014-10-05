@@ -88,7 +88,7 @@
 		</dependency>
 	</dependencies>
 	<scm>
-		<connection>git@github.com:freddiezhang/hw2-hongfeiz.git</connection>
-		<developerConnection>git@github.com:freddiezhang/hw2-hongfeiz.git</developerConnection>
+		<connection>scm:git:git@github.com:freddiezhang/hw2-hongfeiz.git</connection>
+		<developerConnection>scm:git:git@github.com:freddiezhang/hw2-hongfeiz.git</developerConnection>
 	</scm>
 </project>
