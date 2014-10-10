@@ -79,7 +79,7 @@ public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
       sentenceId = inSentence.getInputId();
       inText = inSentence.getInputText();    
       char[] cs = inText.toCharArray();
-      Iterator<Chunk> iter = chunker.nBestChunks(cs,0,cs.length,10);
+      Iterator<Chunk> iter = chunker.nBestChunks(cs,0,cs.length,40);
       //System.out.println("Conf      Span     Phrase");
       while(iter.hasNext()){
           Chunk chunk = iter.next();
@@ -88,14 +88,20 @@ public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
           inEnd = chunk.end();
           outText = inText.substring(inBegin,inEnd);
           int current = 0;
-          int numOfSpace = 0;
+          int numOfSpace1 = 0;
+          int numOfSpace2 = 0;
           for(current = 0; current<inBegin; current++){
             if(inText.charAt(current)==' '){
-              numOfSpace++;
+              numOfSpace1++;
             }
           }
-          outBegin = inBegin - numOfSpace;
-          outEnd = inEnd - numOfSpace - 1;
+          for(current = 0; current<inEnd; current++){
+            if(inText.charAt(current)==' '){
+              numOfSpace2++;
+            }     
+          }
+          outBegin = inBegin - numOfSpace1;
+          outEnd = inEnd - numOfSpace2 - 1;
           Output out = new Output(aJCas);
           out.setOutputId(sentenceId);
           out.setOutputGene(outText);

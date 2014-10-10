@@ -69,14 +69,20 @@ public class AbnerAnnotator extends JCasAnnotator_ImplBase {
         int len = sentences[0][i].length();
         inEnd = inBegin + len;
         int current = 0;
-        int numOfSpace = 0;
+        int numOfSpace1 = 0;
+        int numOfSpace2 = 0;
         for(current = 0; current<inBegin; current++){
           if(inText.charAt(current)==' '){
-            numOfSpace++;
+            numOfSpace1++;
           }
         }
-        outBegin = inBegin - numOfSpace;
-        outEnd = inEnd - numOfSpace - 1;
+        for(current = 0; current<inEnd; current++){
+          if(inText.charAt(current)==' '){
+            numOfSpace2++;
+          }     
+        }
+        outBegin = inBegin - numOfSpace1;
+        outEnd = inEnd - numOfSpace2 - 1;
         Output out = new Output(aJCas);
         out.setOutputId(sentenceId);
         out.setOutputGene(outText);
