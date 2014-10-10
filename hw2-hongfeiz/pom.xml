@@ -9,6 +9,10 @@
 			<id>oaqa</id>
 			<url>http://mu.lti.cs.cmu.edu:8081/nexus/content/groups/course</url>
 		</repository>
+		<repository>
+          <id>oaqa</id>
+          <url>http://mu.lti.cs.cmu.edu:8081/nexus/content/repositories/thirdparty</url>
+     	</repository>
 	</repositories>
 	<distributionManagement>
 		<repository>
@@ -85,6 +89,17 @@
 			<groupId>org.apache.uima</groupId>
 			<artifactId>uimaj-as-jms</artifactId>
 			<version>2.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aliasi</groupId>
+			<artifactId>lingpipe</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>abner</groupId>
+			<artifactId>abner</artifactId>
+			<version>1.5</version>
 		</dependency>
 	</dependencies>
 	<scm>
