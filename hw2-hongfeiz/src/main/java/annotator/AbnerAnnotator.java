@@ -17,7 +17,7 @@ import abner.Tagger;
 public class AbnerAnnotator extends JCasAnnotator_ImplBase {
 
   /**
-   * ID of input and output type system
+   * ID of Input and Output type system
    */
   private String sentenceId;
   /**
@@ -25,14 +25,16 @@ public class AbnerAnnotator extends JCasAnnotator_ImplBase {
    */
   private String inText;
   /**
-   * Begin offset of a gene tag operated by stanford CoreNLP
+   * Begin offset of a gene tag operated by AbnerNer.
    */
   private int inBegin;
   /**
-   * End offset of a gene tag operated by stanford CoreNLP
+   * End offset of a gene tag operated by AbnerNer.
    */
   private int inEnd;
-  
+  /**
+   * Text of a gene tag
+   */
   private String outText;
   /**
    * Begin offset of a gene tag
@@ -42,13 +44,20 @@ public class AbnerAnnotator extends JCasAnnotator_ImplBase {
    * End offset of a gene tag
    */
   private int outEnd;
-  
+  /**
+   * A tagger object of Abner.
+   */
   private Tagger tagger;
-
+  /**
+   * Initialize the tagger.
+   */
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
     tagger = new Tagger();
   }
+  /**
+   * Use Abner to recognize aJCas and put results into Output type.
+   */
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     FSIterator<Annotation> it = aJCas.getAnnotationIndex(Input.type).iterator();
     Input inSentence = new Input(aJCas);
@@ -92,8 +101,5 @@ public class AbnerAnnotator extends JCasAnnotator_ImplBase {
         out.addToIndexes();
       }
     }
-    
-   
   }
-
 }

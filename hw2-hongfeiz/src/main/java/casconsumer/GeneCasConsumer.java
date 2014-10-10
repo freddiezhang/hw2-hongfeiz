@@ -18,8 +18,7 @@ import org.apache.uima.resource.ResourceProcessException;
 public class GeneCasConsumer extends CasConsumer_ImplBase {
 
   /**
-   * Name of configuration parameter that must be set to the path of a directory into which the
-   * output files will be written.
+   * Name of configuration parameter that set the path of Output file.
    */
   public static final String PARAM_OUTPUTDIR = "OutputFile";
 
@@ -52,7 +51,7 @@ public class GeneCasConsumer extends CasConsumer_ImplBase {
     }
   }
   /**
-   * Obtain gene mention tagging results from output type system and write into file
+   * Obtain gene mention tagging results from Aggregate Analysis Engine and write into output file.
    */
   public void processCas(CAS aCAS) throws ResourceProcessException {
     JCas jcas;

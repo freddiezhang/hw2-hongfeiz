@@ -19,26 +19,32 @@ import edu.cmu.deiis.types.RecogGene;
 public class MyGeneAnnotator extends JCasAnnotator_ImplBase {
 
   /**
-   * ID of input and output type system
+   * ID of Output and RecogGene type system.
    */
   private String sentenceId;
   /**
-   * Text of input type system
+   * Text of Output type system.
    */
   private String Text;
   /**
-   * Begin offset of a gene tag operated by stanford CoreNLP
+   * Begin offset of a gene tag operated by Abner or Lingpipe.
    */
   private int Begin;
   /**
-   * End offset of a gene tag operated by stanford CoreNLP
+   * End offset of a gene tag operated by Abner or Lingpipe.
    */
   private int End;
-  
+  /**
+   * Id of NER annotator.
+   */
   private String processorId;
-  
+  /**
+   * Confidence of result of a NER annotator.
+   */
   private double conf;
- 
+  /**
+   * Aggregate processing results of Abner and Lingpipe, and output the final gene tags.
+   */
   public void process(JCas aJCas){
     FSIterator<Annotation> it = aJCas.getAnnotationIndex(Output.type).iterator();
     Output inSentence = new Output(aJCas);

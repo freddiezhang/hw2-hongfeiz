@@ -20,8 +20,7 @@ import org.apache.uima.util.ProgressImpl;
 public class GeneCollectionReader extends CollectionReader_ImplBase {
 
   /**
-   * Name of configuration parameter that must be set to the path of a directory containing input
-   * files.
+   * Name of configuration parameter that set the path of input file.
    */
   public static final String PARAM_INPUTDIR = "InputFile";
 

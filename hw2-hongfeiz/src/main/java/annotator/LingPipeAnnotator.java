@@ -24,7 +24,7 @@ import edu.cmu.deiis.types.Output;
 public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
 
   /**
-   * ID of input and output type system
+   * ID of Input and Output type system
    */
   private String sentenceId;
   /**
@@ -32,14 +32,16 @@ public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
    */
   private String inText;
   /**
-   * Begin offset of a gene tag operated by stanford CoreNLP
+   * Begin offset of a gene tag operated by Lingpipe.
    */
   private int inBegin;
   /**
-   * End offset of a gene tag operated by stanford CoreNLP
+   * End offset of a gene tag operated by Lingpipe.
    */
   private int inEnd;
-  
+  /**
+   * Text of a gene tag
+   */
   private String outText;
   /**
    * Begin offset of a gene tag
@@ -49,13 +51,17 @@ public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
    * End offset of a gene tag
    */
   private int outEnd;
-  
+  /**
+   * Name of configuration parameter that set the path of Lingpipe dictionary.
+   */
   public static final String PARAM_DICDIR = "dicDir";
-  
-  //private File modelFile = new File("./src/main/resources/ne-en-bio-genetag.HmmChunker");
-  
+  /**
+   * A ConfidenceChunker object used in Lingpipe
+   */ 
   private ConfidenceChunker chunker;
-  
+  /**
+   * Initialize the chunker.
+   */
   public void initialize(UimaContext aContext) throws ResourceInitializationException {
     super.initialize(aContext);
     String file = ((String) aContext.getConfigParameterValue(PARAM_DICDIR)).trim();
@@ -70,7 +76,9 @@ public class LingPipeAnnotator extends JCasAnnotator_ImplBase {
       e.printStackTrace();
     }
   }
-  
+  /**
+   * Use Lingpipe to recognize aJCas and put results into Output type.
+   */
   public void process(JCas aJCas) {    
     FSIterator<Annotation> it = aJCas.getAnnotationIndex(Input.type).iterator();
     Input inSentence = new Input(aJCas);
