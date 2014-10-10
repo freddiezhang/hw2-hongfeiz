@@ -65,7 +65,6 @@ public class MyGeneAnnotator extends JCasAnnotator_ImplBase {
         }
         else if(conf<=0.99 && conf>0.5){
           if(begin2end.containsKey(Begin)){
-            System.out.println(begin2end.get(Begin));
             if(begin2end.get(Begin)==End){
               gene.setGeneId(sentenceId);
               gene.setGeneText(Text);

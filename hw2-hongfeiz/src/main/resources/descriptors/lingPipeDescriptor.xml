@@ -19,7 +19,7 @@
       <nameValuePair>
         <name>dicDir</name>
         <value>
-          <string>/ne-en-bio-genetag.HmmChunker</string>
+          <string>/selftrain.dic</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
