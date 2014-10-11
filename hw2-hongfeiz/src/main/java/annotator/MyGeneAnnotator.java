@@ -62,14 +62,14 @@ public class MyGeneAnnotator extends JCasAnnotator_ImplBase {
         begin2end.put(Begin, End);
       }
       else if ("Lingpipe".equals(processorId)){    
-        if(conf>0.99){
+        if(conf>0.7){
           gene.setGeneId(sentenceId);
           gene.setGeneText(Text);
           gene.setBegin(Begin);
           gene.setEnd(End);
           gene.addToIndexes();
         }
-        else if(conf<=0.99 && conf>0.5){
+        else if(conf<=0.7 && conf>0.35){
           if(begin2end.containsKey(Begin)){
             if(begin2end.get(Begin)==End){
               gene.setGeneId(sentenceId);

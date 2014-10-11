@@ -33,7 +33,7 @@
     <capabilities>
       <capability>
         <inputs>
-          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Output</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.RecogGene</type>
         </inputs>
         <outputs/>
         <languagesSupported/>

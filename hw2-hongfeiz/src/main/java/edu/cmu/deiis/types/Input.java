@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Thu Oct 09 22:22:08 EDT 2014
+ * Updated by JCasGen Fri Oct 10 18:26:52 EDT 2014
  * XML source: /home/freddie/git/hw2-hongfeiz/hw2-hongfeiz/src/main/resources/descriptors/casConsumerDescriptor.xml
  * @generated */
 public class Input extends Annotype {

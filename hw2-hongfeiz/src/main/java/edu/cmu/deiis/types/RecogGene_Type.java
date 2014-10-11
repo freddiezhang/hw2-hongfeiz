@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Thu Oct 09 22:22:08 EDT 2014
+ * Updated by JCasGen Fri Oct 10 18:26:52 EDT 2014
  * @generated */
 public class RecogGene_Type extends Annotype_Type {
   /** @generated 
